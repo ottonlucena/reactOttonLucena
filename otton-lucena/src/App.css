@@ -1,17 +1,7 @@
 * {
   margin:  0;
   padding: 0;
-}
-
-.ul{
-  display: flex;
-  justify-content:space-around;
-  list-style: none;
-  background-color: #282c34;
-  cursor: pointer;
-  color: white;
-  font-size: 16px;
-  padding: 15px;
+  background-color: rgba(33,37,41,255);
 }
 
 .titleIndex{
@@ -21,9 +11,39 @@
   padding-top: 10px;
 }
 
-.logo{
-  width: 80px;
+.cart{
+  color: white;
+  margin-right: 20px;
+}
+
+.spanCart{
+  color: black;
+  font-size: 25px;
+  background-color: rgba(255,193,7,255);
+  border-radius: 90px;
+  padding: 3px;
+}
+
+
+img{
+  height: 55px;
+  padding-left: 30px;
+}
+
+.divNav{
+  border-bottom: black 3px solid;
+}
+
+.divItem{
   justify-content: center;
   text-align: center;
-
+  color: white;
+  padding-top: 20px;
 }
+
+.spaH1{
+  font-weight: bold;
+  font-size: 60px;
+  color: rgb(237, 2, 2);
+}
+
