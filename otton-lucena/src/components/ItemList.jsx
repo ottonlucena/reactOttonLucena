@@ -9,6 +9,5 @@ export default function ItemList ({inventario}) {
             {inventario.map(inventario => <Item key={inventario.id} inventario={inventario} />)}
         </div>
         </>
-        
     )
 }
