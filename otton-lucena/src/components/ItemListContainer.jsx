@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemDetailContainer from './ItemDetailContainer';
 import ItemList from './ItemList';
 
 
+
 export default function ItemListContainer({ greeting }) {
 
+    const {id} = useParams()
     const [loading, setLoading] = useState(true)
     const [svg, setSvg] = useState(true)
-    const [inventario, setIventario] = useState([])
-    
+    const [inventario, setInventario] = useState([])
 
     useEffect(() => {
         setTimeout(() => {
-            fetch("./data.json")
-                .then(res => res.json())
-                .then(res => setIventario(res.inventario))
-                .then(setLoading(false))
-                .then(setSvg(false))
-                .catch(error => console.log("Error:", error))
+            fetch("../../data.json")
+            .then(res => res.json())
+            .then(res => {(!id) ? setInventario (res) : setInventario (res.filter(item => item.category === id))})
+            .then(setLoading(false))
+            .then(setSvg(false))
+            .catch(error => console.log("Error:", error))
         }, 2000);
-    }, [])
-
+    }, [id])
+    
     return (
         <>
             <div className="divItem">

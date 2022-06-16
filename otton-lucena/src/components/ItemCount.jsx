@@ -22,10 +22,8 @@ export default function ItemCount ({inicial, stock, onAdd }){
 
     return(
     <>
-        <div className="card text-center text-white p-1">
+        <div className="text-center text-white">
             <div className="card-body">
-                <h5 className="card-title">IMAGEN</h5>
-                <p className="card-text">Descripción de producto.</p>
                 <p className="card-text fs-3">{count}</p>
                 <button onClick={sumar} className="btn btn-primary fw-bold">+</button>
                 <button onClick={restar} className="btn btn-primary fw-bold m-2">-</button>
