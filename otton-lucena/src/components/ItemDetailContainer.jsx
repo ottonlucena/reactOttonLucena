@@ -3,17 +3,19 @@ import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 
 
+
 export default function ItemDetailContainer (){
 
     const {id} = useParams()
     const [detalle, setDetalle] = useState()
-    console.log(id)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const getDetail = () => {
                 fetch("../../data.json")
                     .then(res => res.json())
-                    .then((data) => setDetalle(data.find(el => el.id === 2)))
+                    .then((data) => setDetalle(data.find(el => el.id === Number(id)))) 
+                    .then(setLoading(false))
                     .catch(error => console.log("Error:", error))
         }
         setTimeout(() => {
@@ -23,11 +25,10 @@ export default function ItemDetailContainer (){
     
     
     return(
-        <div className='container p-3'>
-            <h3 className='fw-bold text-warning text-center'>Detalle del Producto</h3>
-            {(detalle) ? <ItemDetail detalle={detalle} /> : <div>loading</div>}
-            console.log(id)
+        <div>
+            {(detalle) ? <ItemDetail detalle={detalle} /> : <div className='fs-1 fw-bold text-warning text-center'>{loading && "Cargando Product's"}</div>}
         </div>
+        
     );
 }
 

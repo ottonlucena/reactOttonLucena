@@ -1,11 +1,23 @@
-
-
+import React from 'react';
+import ItemCount from './ItemCount'
 
 export default function ItemDetail({ detalle }) {
-    const { nombre, img, precio } = detalle
+
+    const onAdd = (count) =>{
+        if ( count === "" ) {alert("Error, debe agregar productos al carrito.")
+    }else{
+        alert(`Se agregó ${count} productos al carrito correctamente.`)
+    }
+
+}
+
+    const { nombre, img, precio, stock } = detalle
+
 
     return (
-        <div className="row row-cols-md-2 p-2">
+        <>
+        <h3 className='fw-bold text-warning text-center'>Detalle del Producto</h3>
+        <div className="row row-cols-md-2 p-4">
             <div className="col">
                 <div className="card text-center">
                     <img src={img} className="card-img-top" alt="..." />
@@ -14,9 +26,11 @@ export default function ItemDetail({ detalle }) {
                         <p className="card-text text-warning fs-3 fw-bold">Detalle:</p>
                         <p className="card-text text-white">detalle: Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, necessitatibus! Molestiae fugit esse iusto veniam quas praesentium nulla deleniti ea vel, quasi amet neque dolorum nam atque adipisci quibusdam cumque.</p>
                         <p className="card-text text-white fw-bold"> Precio: ${precio}</p>
+                        <ItemCount stock={stock} inicial={""} onAdd={onAdd}/>
                     </div>
                 </div>
             </div>
         </div>
+        </>
     )
 }

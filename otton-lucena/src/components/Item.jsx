@@ -1,15 +1,7 @@
 import React from 'react';
-import ItemCount from './ItemCount';
 import { Link } from "react-router-dom"
 
 export default function Item({ inventario }) {
-    
-    const onAdd = (count) =>{
-            if ( count === "" ) {alert("Error, debe agregar productos al carrito.")
-        }else{
-            alert(`Se agregó ${count} productos al carrito correctamente.`)
-        }
-    }
 
     const { nombre, stock, precio, img, id } = inventario;
 
@@ -21,7 +13,6 @@ export default function Item({ inventario }) {
                     <div className="card-body">
                         <h5 className="card-title fw-bold">{nombre}</h5>
                         <p className="card-text fw-bold">disp: {stock}</p>
-                        <ItemCount inicial={""} stock={stock} onAdd={onAdd}/>
                         <p className='card-text text-warning fw-bold'>${precio}</p>
                         <Link to={`/product/${id}`}><button className='btn btn-primary fw-bold'>Ver detalle</button></Link>
                     </div>
