@@ -1,10 +1,12 @@
 import React from "react";
 import CartWidget from "./CartWidget";
 import Logo from "./Logo";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-//const subPages = ["Alexa"," Accesorios"]
+
+
 export default function NavBar() {
+
     return (
         <div className="divNav">
             <nav className="navbar py-3 navbar-expand-lg bg-dark sticky-top " id="navbar">
@@ -20,19 +22,19 @@ export default function NavBar() {
                             </li>
                             <li className="nav-item dropdown fw-bold">
                             <Link className="nav-link active text-warning" to="/home">Productos</Link>
-                                <ul>
-                                    <Link to="/category/Alexa"><li className="nav-link active text-white">Alexa</li></Link>
-                                    <Link to="/category/Accesorios"><li className="nav-link active text-white">Accesorios</li></Link>
+                                <ul className="category-ul">
+                                    <Link to="/category/Alexa"><li className="nav-link active text-white category-li">Alexa</li></Link>
+                                    <Link to="/category/Accesorios"><li className="nav-link active text-white category-li">Accesorios</li></Link>
                                     
                                 </ul>
                             </li>
                             <li className="nav-item fw-bold">
-                            <Link className="nav-link active text-warning" to="/category">Contacto</Link>
+                            <Link className="nav-link active text-warning" to="/contacto">Contacto</Link>
                             </li>
                         </ul>
                     </div>
                 <div>
-                    <CartWidget nCart={4}/>
+                    <CartWidget />
                 </div>
             </nav>
         </div>
