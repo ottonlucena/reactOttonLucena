@@ -1,13 +1,23 @@
-import React from 'react';
-import Item from './Item';
+import React from "react";
+import Item from "./Item";
 
-export default function ItemList ({inventario}) {
-    return(
-        <>
-        <h2 className='fw-bold text-warning'>Productos</h2>
-        <div className='card-group container row-cols-mx-4'>
-            {inventario.map(inventario => <Item key={inventario.id} inventario={inventario} />)}
+export default function ItemList({ inventario }) {
+  const nombre = inventario.map((e) => e.category);
+  const nombreFiltrado = [...new Set(nombre)];
+
+  return (
+    <>
+      <div className="container-fluid">
+        <h2 className="fw-bold text-warning">Productos: </h2>
+        <p className="fw-bold text-white fs-3">{nombreFiltrado.join(" - ")}</p>
+        <div className="card-group">
+          <div className="card-group">
+            {inventario.map((inventario) => (
+              <Item key={inventario.id} inventario={inventario} />
+            ))}
+          </div>
         </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }

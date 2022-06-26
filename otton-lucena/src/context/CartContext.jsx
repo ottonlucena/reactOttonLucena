@@ -1,54 +1,62 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
-export const CartContext = createContext({})
-
-/* const { Provider } = CartContext; */
+export const CartContext = createContext({});
 
 const MyProvider = ({ children }) => {
-    
-    const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
-    const isInCart = (id) => {
-        return cart?.some(x => x.id === id)
+  const isInCart = (id) => {
+    return cart?.some((x) => x.id === id);
+  };
+
+  const emtyCart = () => {
+    setCart([]);
+  };
+
+  const addItem = (item, count) => {
+    const newItem = {
+      ...item,
+      count,
+    };
+
+    if (isInCart(newItem.id)) {
+      const findProduct = cart.find((x) => x.id === newItem.id);
+      const indexProduct = cart.indexOf(findProduct);
+      const arrayAux = [...cart];
+      arrayAux[indexProduct].count += count;
+      setCart(arrayAux);
+    } else {
+      setCart([...cart, newItem]);
     }
+  };
 
-    const emtyCart = () => {
-        setCart([])
-    }
+  const deleteItem = (id) => {
+    return setCart(cart.filter((x) => x.id !== id));
+  };
 
-    const addItem = (item, count) => {
-        const newItem = {
-            ...item,
-            count
-        }
+  const getItemCount = () => {
+    return cart.reduce((acc, x) => (acc += x.count), 0);
+  };
 
-        if(isInCart(newItem.id)){
-            const findProduct = cart.find(x => x.id === newItem.id)
-            const indexProduct = cart.indexOf(findProduct)
-            const arrayAux = [...cart]
-            arrayAux[indexProduct].count += count
-            setCart(arrayAux)
-        }else{
-            setCart([...cart, newItem])
-        }
-    }
+  const getItemPrice = () => {
+    return cart.reduce((acc, x) => (acc += x.count * x.precio), 0);
+  };
 
-    const deleteItem = (id) => {
-        return setCart(cart.filter(x => x.id !== id))
-    }
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        isInCart,
+        emtyCart,
+        addItem,
+        deleteItem,
+        getItemCount,
+        getItemPrice,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
 
-    const getItemCount = () => {
-        return cart.reduce((acc, x) => acc += x.count, 0)
-    }
-
-    const getItemPrice = () => {
-        return cart.reduce((acc, x) => acc += x.count * x.precio, 0)
-    }
-
-    
-    return <CartContext.Provider value={{cart, isInCart, emtyCart, addItem, deleteItem, getItemCount, getItemPrice}}>{children}</CartContext.Provider>
-
-}
-
-
-export default MyProvider
+export default MyProvider;

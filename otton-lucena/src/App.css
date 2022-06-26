@@ -1,61 +1,60 @@
 * {
-  margin:  0;
+  margin: 0;
   padding: 0;
-  background-color: rgba(33,37,41,255);
+  background-color: rgba(33, 37, 41, 255);
 }
 
-.titleIndex{
+.titleIndex {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
   padding-top: 10px;
 }
 
-.cart{
+.cart {
   color: white;
   margin-right: 20px;
 }
 
-.spanCart{
+.spanCart {
   color: black;
   font-size: 25px;
-  background-color: rgba(255,193,7,255);
+  background-color: rgba(255, 193, 7, 255);
   border-radius: 90px;
   padding: 3px;
 }
 
-
-.logo{
+.logo {
   height: 55px;
   padding-left: 30px;
 }
 
-.divNav{
+.divNav {
   border-bottom: black 3px solid;
 }
 
-.divItem{
+.divItem {
   justify-content: center;
   text-align: center;
   color: white;
   padding-top: 20px;
 }
 
-.spaH1{
+.spaH1 {
   font-weight: bold;
   font-size: 60px;
-  color: rgb(237, 2, 2);
+  color: rgb(255, 255, 255);
 }
 
-.card{
+.card {
   width: 18rem;
 }
 
-.category-ul:hover{
+.category-ul:hover {
   display: block;
 }
 
-nav li ul{
+nav li ul {
   position: absolute;
   min-width: 140px;
   display: none;
@@ -65,3 +64,10 @@ nav li:hover > ul {
   display: block;
 }
 
+.link {
+  text-decoration: none;
+}
+
+.styleCard {
+  max-width: 540px;
+}
