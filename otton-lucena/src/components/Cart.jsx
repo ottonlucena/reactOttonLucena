@@ -3,8 +3,13 @@ import { CartContext } from "../context/CartContext";
 import CartVacio from "./CartVacio";
 
 export default function Cart() {
-  const { cart, emtyCart, deleteItem, getItemPrice, getItemCount } =
-    useContext(CartContext);
+  const {
+    cart,
+    emtyCart,
+    deleteItem,
+    getItemPrice,
+    getItemCount /* addItem */,
+  } = useContext(CartContext);
 
   return (
     <>
@@ -39,7 +44,12 @@ export default function Cart() {
                   <td>{el.nombre}</td>
                   <td>{el.count}</td>
                   <td>
-                    <button className="p-1 m-2 btn btn-outline-success">
+                    <button
+                      className="p-1 m-2 btn btn-outline-success"
+                      /* onClick={() => {
+                        addItem();
+                      }} */
+                    >
                       +
                     </button>
                     <button className="p-1 m-2 btn btn-outline-danger">

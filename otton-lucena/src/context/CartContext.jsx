@@ -13,9 +13,9 @@ const MyProvider = ({ children }) => {
     setCart([]);
   };
 
-  const addItem = (item, count) => {
+  const addItem = (detalle, count) => {
     const newItem = {
-      ...item,
+      ...detalle,
       count,
     };
 
@@ -52,6 +52,7 @@ const MyProvider = ({ children }) => {
         deleteItem,
         getItemCount,
         getItemPrice,
+        setCart,
       }}
     >
       {children}
