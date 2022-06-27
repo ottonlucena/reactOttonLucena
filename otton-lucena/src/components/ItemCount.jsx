@@ -8,7 +8,6 @@ export default function ItemCount({ inicial, stock, onAdd }) {
   const [count, setCount] = useState(inicial);
   const [botonActivo, setBotonActivo] = useState(true);
   const [volverInicio, setVolverInicio] = useState();
-  /* const [vaciarCarrito, setVaciarCarrito] = useState(); */
 
   const { deleteItem, cart } = useContext(CartContext);
 
@@ -16,6 +15,9 @@ export default function ItemCount({ inicial, stock, onAdd }) {
     if (e.target.textContent === "Agregar al carrito") {
       setBotonActivo(false);
       setCount(count);
+    }
+    if (count === inicial) {
+      setBotonActivo(true);
     }
   };
 
@@ -41,18 +43,16 @@ export default function ItemCount({ inicial, stock, onAdd }) {
               Ver carrito de compra
             </button>
           </Link>
-          {cart.map((el) => (
-            <button
-              key={el.id}
-              className="btn btn-danger fw-bold p-2 m-2"
-              onClick={() => {
-                deleteItem(el.id);
-                reset();
-              }}
-            >
-              Vaciar carrito
-            </button>
-          ))}
+          <button
+            className="btn btn-danger fw-bold p-2 m-2"
+            onClick={() => {
+              cart.map((el) => deleteItem(el.id));
+              reset();
+            }}
+          >
+            Eliminar producto
+          </button>
+
           <Link to="/home">{volverInicio}</Link>
         </div>
       </>
@@ -80,31 +80,18 @@ export default function ItemCount({ inicial, stock, onAdd }) {
         <div className="text-center text-white">
           <div className="card-body">
             <div className="d-flex justify-content-center">
-              <button
-                disabled={!botonActivo}
-                onClick={sumar}
-                className="btn btn-primary fw-bold m-4"
-              >
+              <button onClick={sumar} className="btn btn-primary fw-bold m-4">
                 +
               </button>
               <div className=" fs-3 m-4">{count}</div>
-              <button
-                disabled={!botonActivo}
-                onClick={restar}
-                className="btn btn-primary fw-bold m-4"
-              >
+              <button onClick={restar} className="btn btn-primary fw-bold m-4">
                 -
               </button>
             </div>
-            <button
-              disabled={!botonActivo}
-              onClick={reset}
-              className="btn btn-primary fw-bold"
-            >
+            <button onClick={reset} className="btn btn-primary fw-bold">
               Reset
             </button>
             <button
-              disabled={!botonActivo}
               onClick={(e) => {
                 reset();
                 onAdd(count);

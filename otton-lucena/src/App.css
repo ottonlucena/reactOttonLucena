@@ -71,3 +71,14 @@ nav li:hover > ul {
 .styleCard {
   max-width: 540px;
 }
+
+.iconCartVacio {
+  color: white;
+  box-shadow: 6px 6px 6px white;
+  transition: 0.5s;
+}
+
+#iconCartVacio:hover > {
+  border: white solid;
+  transform: scale(1.02);
+}

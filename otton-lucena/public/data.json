@@ -2,8 +2,8 @@
   {
     "category": "Alexa",
     "id": 1,
-    "nombre": "Echo Show",
-    "stock": 4,
+    "nombre": "Echo Show 5''",
+    "stock": 84,
     "precio": 2000,
     "img": "/img/carrito/echoS.png"
   },
@@ -11,39 +11,39 @@
     "category": "Alexa",
     "id": 2,
     "nombre": "Echo Auto",
-    "stock": 3,
+    "stock": 55,
     "precio": 1000,
     "img": "/img/carrito/echoauto.png"
   },
   {
     "category": "Alexa",
     "id": 3,
-    "nombre": "Fire TV",
-    "stock": 6,
+    "nombre": "Fire TV Amazon 3°",
+    "stock": 103,
     "precio": 3000,
     "img": "/img/carrito/fireC.png"
   },
   {
     "category": "Alexa",
     "id": 4,
-    "nombre": "Tablet",
-    "stock": 5,
+    "nombre": "Tablet Amazon Fire 8''",
+    "stock": 71,
     "precio": 5000,
     "img": "/img/carrito/tabletfire.png"
   },
   {
     "category": "Accesorios",
     "id": 5,
-    "nombre": "Ring",
-    "stock": 7,
+    "nombre": "Timbre Ring - Amazon",
+    "stock": 69,
     "precio": 2300,
     "img": "/img/carrito/ring.png"
   },
   {
     "category": "Accesorios",
-    "id": 6,
-    "nombre": "Conector",
-    "stock": 2,
+    "id": 38,
+    "nombre": "Conector inteligente - Amazon",
+    "stock": 88,
     "precio": 2400,
     "img": "/img/carrito/conector.png"
   }

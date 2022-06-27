@@ -1,40 +1,95 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import CartVacio from "./CartVacio";
 
 export default function Cart() {
-  const { cart } = useContext(CartContext);
+  const { cart, emtyCart, deleteItem, getItemPrice, getItemCount } =
+    useContext(CartContext);
 
   return (
     <>
-      <h1 className="text-white fw-bold text-center">Carrito de Compras</h1>
-      <div className="mb-3 container">
-        {cart.map((el) => (
-          <div key={el.id} className="styleCard">
-            <div className="row g-4">
-              <div className="col-md-4">
-                <img
-                  src={el.img}
-                  className="img-fluid rounded-start"
-                  alt={el.nombre}
-                />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title text-white">{el.nombre}</h5>
-                  <p className="card-text text-white">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <p className="card-text">
-                    <small className="text-muted">$ {el.precio}</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <h1 className="text-white fw-bold text-center container">
+        Carrito de Compras
+      </h1>
+      {cart > [] ? (
+        <div className="text-center container">
+          <table className="table table-dark table-hover text-white border border-3 border-warning">
+            <thead className="table-light">
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Total de Productos</th>
+                <th scope="col"></th>
+                <th scope="col">Valor Unitario</th>
+                <th scope="col">Valor Total</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((el) => (
+                <tr key={el.id}>
+                  <td>
+                    <img
+                      className="img-fluid"
+                      width={50}
+                      src={el.img}
+                      alt={el.nombre}
+                    />
+                  </td>
+                  <td>{el.nombre}</td>
+                  <td>{el.count}</td>
+                  <td>
+                    <button className="p-1 m-2 btn btn-outline-success">
+                      +
+                    </button>
+                    <button className="p-1 m-2 btn btn-outline-danger">
+                      -
+                    </button>
+                  </td>
+                  <td>$ {el.precio}</td>
+                  <td>${el.precio * el.count}</td>
+                  <button
+                    className="text-warning border-0"
+                    onClick={() => {
+                      deleteItem(el.id);
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-x-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                    </svg>
+                  </button>
+                </tr>
+              ))}
+              <tr className="text-white fw-bold">
+                <td className="fs-2">Detalle:</td>
+                <td></td>
+                <td>{getItemCount()}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => {
+                      emtyCart();
+                    }}
+                  >
+                    Vaciar carrito
+                  </button>
+                </td>
+                <td></td>
+                <td>$ {getItemPrice()}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <CartVacio />
+      )}
     </>
   );
 }

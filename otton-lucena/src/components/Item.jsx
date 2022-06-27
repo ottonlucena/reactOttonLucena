@@ -18,7 +18,7 @@ export default function Item({ inventario }) {
               </button>
             </Link>
           </div>
-          <p className="card-text fw-bold">Stock disponible: {stock}</p>
+          <p className="card-text fw-bold">Unidades disponible: {stock}</p>
         </div>
       </div>
     </div>
