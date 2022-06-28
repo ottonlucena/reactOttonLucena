@@ -1,15 +1,45 @@
 import React, { useContext } from "react";
+//import { useState } from "react";
 import { CartContext } from "../context/CartContext";
 import CartVacio from "./CartVacio";
 
 export default function Cart() {
   const {
     cart,
+    setCart,
     emtyCart,
     deleteItem,
     getItemPrice,
     getItemCount /* addItem */,
   } = useContext(CartContext);
+
+  //const [botonActivo, setBotonActivo] = useState(true);
+
+  const agregarUno = (product) => {
+    const inCart = cart.find((x) => x.id === product.id);
+    if (inCart) {
+      setCart(
+        cart.map((productsInCart) => {
+          if (productsInCart.id === product.id) {
+            return { ...inCart, count: inCart.count + 1 };
+          } else return productsInCart;
+        })
+      );
+    }
+  };
+
+  const quitarUno = (product) => {
+    const inCart = cart.find((x) => x.id === product.id);
+    if (inCart) {
+      setCart(
+        cart.map((productsInCart) => {
+          if (productsInCart.id === product.id) {
+            return { ...inCart, count: inCart.count - 1 };
+          } else return productsInCart;
+        })
+      );
+    }
+  };
 
   return (
     <>
@@ -46,13 +76,20 @@ export default function Cart() {
                   <td>
                     <button
                       className="p-1 m-2 btn btn-outline-success"
-                      /* onClick={() => {
-                        addItem();
-                      }} */
+                      onClick={(e) => {
+                        cart.map((el) => el.id);
+                        agregarUno(el, e.target.value);
+                      }}
                     >
                       +
                     </button>
-                    <button className="p-1 m-2 btn btn-outline-danger">
+                    <button
+                      className="p-1 m-2 btn btn-outline-danger"
+                      onClick={(e) => {
+                        cart.map((el) => el.id);
+                        quitarUno(el, e.target.value);
+                      }}
+                    >
                       -
                     </button>
                   </td>
