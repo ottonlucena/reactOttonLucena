@@ -6,8 +6,19 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Contacto from "./components/Contacto";
 import MyProvider from "./context/CartContext";
+import { initializeApp } from "firebase/app";
 
 function App() {
+  const firebaseConfig = {
+    apiKey: "AIzaSyCAoCLMPzehYTYdoMdPpKvRfs39NOrDsLQ",
+    authDomain: "inventario-eee78.firebaseapp.com",
+    projectId: "inventario-eee78",
+    storageBucket: "inventario-eee78.appspot.com",
+    messagingSenderId: "103454120528",
+    appId: "1:103454120528:web:9f063395a7990ee965cf55",
+  };
+  initializeApp(firebaseConfig);
+
   return (
     <>
       <BrowserRouter>

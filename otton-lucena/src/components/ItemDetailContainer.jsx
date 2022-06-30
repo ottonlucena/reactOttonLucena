@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { getDoc, getFirestore, doc } from "firebase/firestore";
 
 export default function ItemDetailContainer() {
   const { id } = useParams();
@@ -8,7 +9,7 @@ export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getDetail = () => {
+    /* const getDetail = () => {
       fetch("../../data.json")
         .then((res) => res.json())
         .then((data) => setDetalle(data.find((el) => el.id === Number(id))))
@@ -17,7 +18,20 @@ export default function ItemDetailContainer() {
     };
     setTimeout(() => {
       getDetail();
-    }, 2000);
+    }, 2000); */
+    const bd = getFirestore();
+    const detalleItems = doc(bd, "items", id);
+
+    getDoc(detalleItems)
+      .then((snapshot) => {
+        setDetalle({ ...snapshot.data(), id: snapshot.id });
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [id]);
 
   return (

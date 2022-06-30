@@ -8,7 +8,7 @@ export default function Item({ inventario }) {
     <div className="row row-cols-md-2 p-4 m-1">
       <div className="col">
         <div className="card">
-          <img src={img} className="card-img-top" alt="..." />
+          <img src={img} className="card-img-top mx-auto " alt="..." />
           <div className="card-body">
             <h5 className="card-title fw-bold">{nombre}</h5>
             <p className="card-text text-warning fw-bold">${precio}</p>

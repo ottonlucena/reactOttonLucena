@@ -8,7 +8,7 @@ export default function ItemList({ inventario }) {
   return (
     <>
       <div className="container-fluid">
-        <h2 className="fw-bold text-warning">Productos: </h2>
+        <h2 className="fw-bold text-warning">Productos:</h2>
         <p className="fw-bold text-white fs-3">{nombreFiltrado.join(" - ")}</p>
         <div className="card-group">
           <div className="card-group">

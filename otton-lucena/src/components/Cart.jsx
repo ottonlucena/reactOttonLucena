@@ -1,19 +1,13 @@
 import React, { useContext } from "react";
-//import { useState } from "react";
+import { useState } from "react";
 import { CartContext } from "../context/CartContext";
 import CartVacio from "./CartVacio";
 
 export default function Cart() {
-  const {
-    cart,
-    setCart,
-    emtyCart,
-    deleteItem,
-    getItemPrice,
-    getItemCount /* addItem */,
-  } = useContext(CartContext);
+  const { cart, setCart, emtyCart, deleteItem, getItemPrice, getItemCount } =
+    useContext(CartContext);
 
-  //const [botonActivo, setBotonActivo] = useState(true);
+  const [botonActivo, setBotonActivo] = useState(false);
 
   const agregarUno = (product) => {
     const inCart = cart.find((x) => x.id === product.id);
@@ -47,8 +41,8 @@ export default function Cart() {
         Carrito de Compras
       </h1>
       {cart > [] ? (
-        <div className="text-center container">
-          <table className="table table-dark table-hover text-white border border-3 border-warning">
+        <div className="container table-responsive-sm">
+          <table className="table table-dark table-hover text-white border border-3 border-warning table-responsive">
             <thead className="table-light">
               <tr>
                 <th scope="col">Item</th>
@@ -79,7 +73,11 @@ export default function Cart() {
                       onClick={(e) => {
                         cart.map((el) => el.id);
                         agregarUno(el, e.target.value);
+                        /* if (el.count === el.stock) {
+                          setBotonActivo(false); 
+                        } */
                       }}
+                      /* disabled={!botonActivo} */
                     >
                       +
                     </button>
@@ -88,7 +86,9 @@ export default function Cart() {
                       onClick={(e) => {
                         cart.map((el) => el.id);
                         quitarUno(el, e.target.value);
+                        if (el.count === 1) setBotonActivo(true);
                       }}
+                      disabled={botonActivo}
                     >
                       -
                     </button>

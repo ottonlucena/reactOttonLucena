@@ -77,8 +77,3 @@ nav li:hover > ul {
   box-shadow: 6px 6px 6px white;
   transition: 0.5s;
 }
-
-#iconCartVacio:hover > {
-  border: white solid;
-  transform: scale(1.02);
-}
