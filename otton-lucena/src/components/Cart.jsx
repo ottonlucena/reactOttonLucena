@@ -7,7 +7,8 @@ export default function Cart() {
   const { cart, setCart, emtyCart, deleteItem, getItemPrice, getItemCount } =
     useContext(CartContext);
 
-  const [botonActivo, setBotonActivo] = useState(false);
+  const [botonMenor, setBotonMenor] = useState(true);
+  const [botonMayor, setBotonMayor] = useState(false);
 
   const agregarUno = (product) => {
     const inCart = cart.find((x) => x.id === product.id);
@@ -15,7 +16,7 @@ export default function Cart() {
       setCart(
         cart.map((productsInCart) => {
           if (productsInCart.id === product.id) {
-            return { ...inCart, count: inCart.count + 1 };
+            return { ...inCart, count: (inCart.count += 1) };
           } else return productsInCart;
         })
       );
@@ -28,7 +29,7 @@ export default function Cart() {
       setCart(
         cart.map((productsInCart) => {
           if (productsInCart.id === product.id) {
-            return { ...inCart, count: inCart.count - 1 };
+            return { ...inCart, count: (inCart.count -= 1) };
           } else return productsInCart;
         })
       );
@@ -41,7 +42,7 @@ export default function Cart() {
         Carrito de Compras
       </h1>
       {cart > [] ? (
-        <div className="container table-responsive-sm">
+        <div className="container table-responsive">
           <table className="table table-dark table-hover text-white border border-3 border-warning table-responsive">
             <thead className="table-light">
               <tr>
@@ -68,34 +69,58 @@ export default function Cart() {
                   <td>{el.nombre}</td>
                   <td>{el.count}</td>
                   <td>
-                    <button
+                    {/* <button
                       className="p-1 m-2 btn btn-outline-success"
                       onClick={(e) => {
                         cart.map((el) => el.id);
                         agregarUno(el, e.target.value);
-                        /* if (el.count === el.stock) {
-                          setBotonActivo(false); 
-                        } */
+                        if (el.count === el.stock) setBotonMayor(true);
+                        if (el.count > 0) setBotonMenor(false);
                       }}
-                      /* disabled={!botonActivo} */
+                      disabled={botonMayor}
                     >
                       +
-                    </button>
-                    <button
+                    </button> */}
+                    <input
+                      type="button"
+                      value="+"
+                      className="p-1 m-2 btn btn-outline-success"
+                      onClick={(e) => {
+                        cart.map((el) => el.id);
+                        agregarUno(el, e.target.value);
+                        if (el.count === el.stock) setBotonMayor(true);
+                        if (el.count > 0) setBotonMenor(false);
+                      }}
+                      disabled={botonMayor}
+                    />
+                    {/* <button
                       className="p-1 m-2 btn btn-outline-danger"
                       onClick={(e) => {
                         cart.map((el) => el.id);
                         quitarUno(el, e.target.value);
-                        if (el.count === 1) setBotonActivo(true);
+                        if (el.count < 2) setBotonMenor(true);
+                        if (el.count < el.stock) setBotonMayor(false);
                       }}
-                      disabled={botonActivo}
+                      disabled={botonMenor}
                     >
                       -
-                    </button>
+                    </button> */}
+                    <input
+                      type="button"
+                      value="+"
+                      className="p-1 m-2 btn btn-outline-danger"
+                      onClick={(e) => {
+                        cart.map((el) => el.id);
+                        quitarUno(el, e.target.value);
+                        if (el.count < 2) setBotonMenor(true);
+                        if (el.count < el.stock) setBotonMayor(false);
+                      }}
+                      disabled={botonMenor}
+                    />
                   </td>
                   <td>$ {el.precio}</td>
                   <td>${el.precio * el.count}</td>
-                  <button
+                  {/* <button
                     className="text-warning border-0"
                     onClick={() => {
                       deleteItem(el.id);
@@ -111,7 +136,15 @@ export default function Cart() {
                     >
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
                     </svg>
-                  </button>
+                  </button> */}
+                  <input
+                    type="button"
+                    className="text-warning border-0 fw-bold"
+                    value="x"
+                    onClick={() => {
+                      deleteItem(el.id);
+                    }}
+                  />
                 </tr>
               ))}
               <tr className="text-white fw-bold">
@@ -119,14 +152,14 @@ export default function Cart() {
                 <td></td>
                 <td>{getItemCount()}</td>
                 <td>
-                  <button
+                  <input
                     className="btn btn-danger"
+                    type="button"
+                    value="Vaciar carrtio"
                     onClick={() => {
                       emtyCart();
                     }}
-                  >
-                    Vaciar carrito
-                  </button>
+                  />
                 </td>
                 <td></td>
                 <td>$ {getItemPrice()}</td>

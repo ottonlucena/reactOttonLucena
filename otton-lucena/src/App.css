@@ -61,7 +61,7 @@ nav li ul {
 }
 
 nav li:hover > ul {
-  display: block;
+  display: inline;
 }
 
 .link {
