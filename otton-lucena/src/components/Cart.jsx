@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { CartContext } from "../context/CartContext";
 import CartVacio from "./CartVacio";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cart, setCart, emtyCart, deleteItem, getItemPrice, getItemCount } =
@@ -69,18 +70,6 @@ export default function Cart() {
                   <td>{el.nombre}</td>
                   <td>{el.count}</td>
                   <td>
-                    {/* <button
-                      className="p-1 m-2 btn btn-outline-success"
-                      onClick={(e) => {
-                        cart.map((el) => el.id);
-                        agregarUno(el, e.target.value);
-                        if (el.count === el.stock) setBotonMayor(true);
-                        if (el.count > 0) setBotonMenor(false);
-                      }}
-                      disabled={botonMayor}
-                    >
-                      +
-                    </button> */}
                     <input
                       type="button"
                       value="+"
@@ -93,18 +82,6 @@ export default function Cart() {
                       }}
                       disabled={botonMayor}
                     />
-                    {/* <button
-                      className="p-1 m-2 btn btn-outline-danger"
-                      onClick={(e) => {
-                        cart.map((el) => el.id);
-                        quitarUno(el, e.target.value);
-                        if (el.count < 2) setBotonMenor(true);
-                        if (el.count < el.stock) setBotonMayor(false);
-                      }}
-                      disabled={botonMenor}
-                    >
-                      -
-                    </button> */}
                     <input
                       type="button"
                       value="+"
@@ -120,23 +97,6 @@ export default function Cart() {
                   </td>
                   <td>$ {el.precio}</td>
                   <td>${el.precio * el.count}</td>
-                  {/* <button
-                    className="text-warning border-0"
-                    onClick={() => {
-                      deleteItem(el.id);
-                    }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-x-circle-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                    </svg>
-                  </button> */}
                   <input
                     type="button"
                     className="text-warning border-0 fw-bold"
@@ -153,7 +113,7 @@ export default function Cart() {
                 <td>{getItemCount()}</td>
                 <td>
                   <input
-                    className="btn btn-danger"
+                    className="btn btn-danger fw-bold"
                     type="button"
                     value="Vaciar carrtio"
                     onClick={() => {
@@ -161,7 +121,11 @@ export default function Cart() {
                     }}
                   />
                 </td>
-                <td></td>
+                <td>
+                  <Link to="/formulario" className="btn btn-info fw-bold">
+                    Finalizar Compra
+                  </Link>
+                </td>
                 <td>$ {getItemPrice()}</td>
               </tr>
             </tbody>
