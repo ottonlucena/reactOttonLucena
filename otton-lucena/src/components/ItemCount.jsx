@@ -80,12 +80,12 @@ export default function ItemCount({ inicial, stock, onAdd }) {
         <div className="text-center text-white">
           <div className="card-body">
             <div className="d-flex justify-content-center">
-              <button onClick={sumar} className="btn btn-primary fw-bold m-4">
-                +
-              </button>
-              <div className=" fs-3 m-4">{count}</div>
               <button onClick={restar} className="btn btn-primary fw-bold m-4">
                 -
+              </button>
+              <div className=" fs-3 m-4">{count}</div>
+              <button onClick={sumar} className="btn btn-primary fw-bold m-4">
+                +
               </button>
             </div>
             <button onClick={reset} className="btn btn-primary fw-bold">

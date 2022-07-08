@@ -2,6 +2,7 @@ import React from "react";
 import CartWidget from "./CartWidget";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import Categorias from "./Categorias";
 
 export default function NavBar() {
   return (
@@ -47,19 +48,18 @@ export default function NavBar() {
                 Home
               </Link>
             </li>
-            <li className="nav-item dropdown fw-bold">
-              <Link className="nav-link active text-warning" to="/home">
+            <li className="fw-bold">
+              <Link
+                className="nav-link dropdown-toggle text-warning"
+                to="/home"
+                data-bs-toggle="dropdown"
+                role="button"
+                aria-expanded="false"
+              >
                 Productos
               </Link>
-              <ul className="category-ul">
-                <Link to="/category/Alexa">
-                  <li className="nav active text-white category-li">Alexa</li>
-                </Link>
-                <Link to="/category/Accesorios">
-                  <li className="nav active text-white category-li">
-                    Accesorios
-                  </li>
-                </Link>
+              <ul className="category-ul dropdown-menu">
+                <Categorias />
               </ul>
             </li>
             <li className="nav-item fw-bold">

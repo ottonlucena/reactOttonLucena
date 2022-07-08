@@ -58,6 +58,7 @@ nav li ul {
   position: absolute;
   min-width: 140px;
   display: none;
+  color: whitesmoke;
 }
 
 nav li:hover > ul {

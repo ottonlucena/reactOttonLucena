@@ -43,7 +43,7 @@ export default function Cart() {
         Carrito de Compras
       </h1>
       {cart > [] ? (
-        <div className="container table-responsive">
+        <div className="container table-responsive text-center">
           <table className="table table-dark table-hover text-white border border-3 border-warning table-responsive">
             <thead className="table-light">
               <tr>
@@ -59,10 +59,9 @@ export default function Cart() {
             <tbody>
               {cart.map((el) => (
                 <tr key={el.id}>
-                  <td>
+                  <td width={50}>
                     <img
-                      className="img-fluid"
-                      width={50}
+                      className="img-fluid img-thumbnail"
                       src={el.img}
                       alt={el.nombre}
                     />
@@ -70,18 +69,6 @@ export default function Cart() {
                   <td>{el.nombre}</td>
                   <td>{el.count}</td>
                   <td>
-                    <input
-                      type="button"
-                      value="+"
-                      className="p-1 m-2 btn btn-outline-success"
-                      onClick={(e) => {
-                        cart.map((el) => el.id);
-                        agregarUno(el, e.target.value);
-                        if (el.count === el.stock) setBotonMayor(true);
-                        if (el.count > 0) setBotonMenor(false);
-                      }}
-                      disabled={botonMayor}
-                    />
                     <input
                       type="button"
                       value="+"
@@ -93,6 +80,18 @@ export default function Cart() {
                         if (el.count < el.stock) setBotonMayor(false);
                       }}
                       disabled={botonMenor}
+                    />
+                    <input
+                      type="button"
+                      value="+"
+                      className="p-1 m-2 btn btn-outline-success"
+                      onClick={(e) => {
+                        cart.map((el) => el.id);
+                        agregarUno(el, e.target.value);
+                        if (el.count === el.stock) setBotonMayor(true);
+                        if (el.count > 0) setBotonMenor(false);
+                      }}
+                      disabled={botonMayor}
                     />
                   </td>
                   <td>$ {el.precio}</td>
