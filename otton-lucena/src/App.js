@@ -7,7 +7,6 @@ import Cart from "./components/Cart";
 import Contacto from "./components/Contacto";
 import MyProvider from "./context/CartContext";
 import { initializeApp } from "firebase/app";
-//import Forumulario from "./components/Formulario";
 import ContactoForm from "./components/ContactoForm";
 
 function App() {

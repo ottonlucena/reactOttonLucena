@@ -68,8 +68,6 @@ export default function NavBar() {
               </Link>
             </li>
           </ul>
-        </div>
-        <div>
           <CartWidget />
         </div>
       </nav>
