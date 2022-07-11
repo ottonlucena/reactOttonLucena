@@ -7,10 +7,7 @@ import Categorias from "./Categorias";
 export default function NavBar() {
   return (
     <div className="divNav">
-      <nav
-        className="navbar py-3 navbar-expand-lg bg-dark sticky-top "
-        id="navbar"
-      >
+      <nav className="navbar py-3 navbar-expand-lg sticky-top " id="navbar">
         <Logo />
         <Link className="navbar-brand text-warning" to="/home">
           <b>COMERCIAL</b>

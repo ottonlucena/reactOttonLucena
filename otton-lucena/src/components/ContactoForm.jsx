@@ -58,7 +58,9 @@ const ContactoForm = () => {
     <>
       {!volver ? (
         <div className="text-white container">
-          <h2 className="text-center">Formulario de Contacto</h2>
+          <h2 className="text-center colorDos fw-bold">
+            Formulario de Contacto
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="row">
               <label
@@ -132,9 +134,9 @@ const ContactoForm = () => {
                 )}
               </div>
             </div>
-            <div className="text-center p-2 text-white">
+            <div className="text-center p-2">
               <textarea
-                className="textarea text-white"
+                className="textarea text-black"
                 name="comentario"
                 cols="40"
                 rows="5"
@@ -179,14 +181,16 @@ const ContactoForm = () => {
             </h3>
             <h2>Número de orden:</h2>
             <p className="fw-bold text-danger">{orden.id}</p>
-            <p className="fw-bold">Total de la compra: ${orden.total}</p>
+            <p className="fw-bold colorDos">
+              Total de la compra: ${orden.total}
+            </p>
           </div>
           <div className="text-center">
             <p className="text-white fs-3 fw-bold">
               Gracias por confiar en nosotros, nos contactaremos contigo a la
               brevedad.
             </p>
-            <p className="text-info fw-bold">
+            <p className="text-black fw-bold">
               Email de contacto: {orden.buyer.email}
             </p>
             <Link to="/home" className="btn btn-warning fw-bold">

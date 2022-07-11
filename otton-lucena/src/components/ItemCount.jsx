@@ -83,7 +83,7 @@ export default function ItemCount({ inicial, stock, onAdd }) {
               <button onClick={restar} className="btn btn-primary fw-bold m-4">
                 -
               </button>
-              <div className=" fs-3 m-4">{count}</div>
+              <div className=" fs-3 text-black fw-bold m-4">{count}</div>
               <button onClick={sumar} className="btn btn-primary fw-bold m-4">
                 +
               </button>

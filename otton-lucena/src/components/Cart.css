@@ -9,6 +9,14 @@ tabl th {
 }
 
 @media (max-width: 768px) {
+  .titulo {
+    font-size: 15px;
+  }
+
+  .tituloDos {
+    font-size: 20px;
+  }
+
   .tabl thead {
     display: none;
   }

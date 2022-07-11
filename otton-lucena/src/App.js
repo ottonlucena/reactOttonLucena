@@ -1,6 +1,6 @@
 import "./App.css";
 import ItemListContainer from "./components/ItemListContainer";
-import NavBar from "./components/NavBar";
+//import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
@@ -8,6 +8,7 @@ import Contacto from "./components/Contacto";
 import MyProvider from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import ContactoForm from "./components/ContactoForm";
+import NavBar2 from "./components/NavBar2";
 
 function App() {
   const firebaseConfig = {
@@ -24,12 +25,13 @@ function App() {
     <>
       <BrowserRouter>
         <MyProvider>
-          <NavBar />
+          {/* <NavBar /> */}
+          <NavBar2 />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route
               path="/home"
-              element={<ItemListContainer greeting={"Bienvenidos!!"} />}
+              element={<ItemListContainer greeting={"!!"} />}
             />
             <Route path="/category/:id" element={<ItemListContainer />} />
             <Route path="/product/:id" element={<ItemDetailContainer />} />

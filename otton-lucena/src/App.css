@@ -1,7 +1,36 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: rgba(33, 37, 41, 255);
+}
+
+.body {
+  background-color: #ffa43a;
+}
+
+.divNav {
+  background-color: #ffbf75;
+}
+
+.titulo {
+  color: rgb(172, 149, 20);
+  font-size: 30px;
+}
+
+.tituloDos {
+  color: rgb(22, 27, 83);
+  font-size: 25px;
+}
+.color {
+  color: rgb(172, 149, 20);
+}
+
+.colorDos {
+  color: rgb(22, 27, 83);
+}
+
+.letraAzul {
+  color: #525558;
+  font-weight: bold;
 }
 
 .titleIndex {
@@ -19,35 +48,24 @@
 .spanCart {
   color: black;
   font-size: 25px;
-  background-color: rgba(255, 193, 7, 255);
   border-radius: 90px;
   padding: 3px;
 }
 
 .logo {
-  height: 55px;
-  padding-left: 30px;
-}
-
-.divNav {
-  border-bottom: black 3px solid;
+  height: 50px;
 }
 
 .divItem {
   justify-content: center;
   text-align: center;
-  color: white;
+  color: #0000;
   padding-top: 20px;
-}
-
-.spaH1 {
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  font-size: 50px;
 }
 
 .card {
   width: 18rem;
+  box-shadow: 10px 5px 5px #525558;
 }
 
 .category-ul:hover {

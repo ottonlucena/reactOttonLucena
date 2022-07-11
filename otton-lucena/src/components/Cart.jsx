@@ -38,10 +38,6 @@ export default function Cart() {
     }
   };
 
-  console.warn(
-    "Profesor, saludos. No utilice ninguna libreria por falta de tiempo, pero todo funciona correctamente."
-  );
-
   return (
     <>
       <h1 className="text-white fw-bold text-center container">

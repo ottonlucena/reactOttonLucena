@@ -10,7 +10,7 @@ export default function Item({ inventario }) {
         <div className="card">
           <img src={img} className="card-img-top mx-auto " alt={nombre} />
           <div className="card-body">
-            <h5 className="card-title fw-bold">{nombre}</h5>
+            <h5 className="card-title fw-bold letraAzul">{nombre}</h5>
             <p className="card-text text-warning fw-bold">${precio}</p>
             <Link to={`/product/${id}`}>
               <button className="btn btn-primary fw-bold">
@@ -29,7 +29,9 @@ export default function Item({ inventario }) {
               </button>
             </Link>
           </div>
-          <p className="card-text fw-bold">Unidades disponible: {stock}</p>
+          <p className="card-text fw-bold colorDos">
+            Unidades disponible: {stock}
+          </p>
         </div>
       </div>
     </div>

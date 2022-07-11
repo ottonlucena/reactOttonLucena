@@ -18,8 +18,8 @@ export default function Categorias() {
   return (
     <>
       {categoria.map((el) => (
-        <li key={el}>
-          <Link className="text-white category-li" to={`/category/${el}`}>
+        <li className="dropdown-item" key={el}>
+          <Link className="text-black" to={`/category/${el}`}>
             {el}
           </Link>
         </li>

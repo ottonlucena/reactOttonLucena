@@ -55,8 +55,9 @@ export default function ItemListContainer({ greeting }) {
     <>
       {!loading ? (
         <div className="divItem">
-          <h1 className="divH1">
-            <span className="spaH1">{greeting}</span>
+          <h1 className="text-white display-3 fw-bold">
+            Bienvenidos
+            <span className="colorDos fw-bold">{greeting}</span>
           </h1>
           <ItemList inventario={inventario} />
         </div>
