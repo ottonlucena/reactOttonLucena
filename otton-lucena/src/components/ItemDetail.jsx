@@ -22,8 +22,8 @@ export default function ItemDetail({ detalle }) {
         <h3 className="fw-bold text-white text-center fs-2">
           Detalles del Producto
         </h3>
-        <div className="d-flex bg-white">
-          <div className="d-block">
+        <div className="d-flex bg-light d-flex">
+          <div className="d-block m-1">
             <img
               src={img}
               className="img-fluid shadow p-3 mb-5 bg-body rounded"

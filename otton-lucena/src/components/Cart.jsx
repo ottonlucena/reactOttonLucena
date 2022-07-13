@@ -97,19 +97,22 @@ export default function Cart() {
                   </td>
                   <td data-label="Precio:">$ {el.precio}</td>
                   <td data-label="Sub-total:">${el.precio * el.count}</td>
-                  <input
-                    type="button"
-                    className="text-warning border-0 fw-bold hidden"
-                    value="x"
-                    onClick={() => {
-                      deleteItem(el.id);
-                    }}
-                  />
+                  <td>
+                    <input
+                      type="button"
+                      className="text-warning border-0 fw-bold hidden"
+                      value="x"
+                      onClick={() => {
+                        deleteItem(el.id);
+                      }}
+                    />
+                  </td>
                 </tr>
               ))}
               <tr className="text-white fw-bold">
-                <td className="fs-2 hidden">Detalle:</td>
-                <td></td>
+                <td colSpan="2" className="fs-2 text-center">
+                  Detalle:
+                </td>
                 <td>{getItemCount()}</td>
                 <td>
                   <input
@@ -126,7 +129,9 @@ export default function Cart() {
                     Finalizar Compra
                   </Link>
                 </td>
-                <td data-label="Total:">$ {getItemPrice()}</td>
+                <td colSpan="2" data-label="Total:">
+                  $ {getItemPrice()}
+                </td>
               </tr>
             </tbody>
           </table>

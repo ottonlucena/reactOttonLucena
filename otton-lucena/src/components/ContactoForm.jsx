@@ -57,7 +57,7 @@ const ContactoForm = () => {
   return (
     <>
       {!volver ? (
-        <div className="text-white container">
+        <div className="text-white container p-4">
           <h2 className="text-center colorDos fw-bold">
             Formulario de Contacto
           </h2>
@@ -151,7 +151,7 @@ const ContactoForm = () => {
                 </p>
               )}
             </div>
-            <div className="text-center">
+            <div className="text-center p-2">
               <input
                 type="submit"
                 value="Enviar"
@@ -176,11 +176,11 @@ const ContactoForm = () => {
         <>
           <div className="text-white text-center p-4">
             <h3>
-              Estimado(a) cliente {orden.buyer.nombre.toUpperCase()} su orden de
-              compra fue generada correctamente.
+              Estimado(a) cliente <b>{orden.buyer.nombre.toUpperCase()}</b> su
+              orden de compra fue generada correctamente.
             </h3>
             <h2>Número de orden:</h2>
-            <p className="fw-bold text-danger">{orden.id}</p>
+            <p className="fw-bold text-danger fs-4">{orden.id}</p>
             <p className="fw-bold colorDos">
               Total de la compra: ${orden.total}
             </p>
@@ -193,7 +193,7 @@ const ContactoForm = () => {
             <p className="text-black fw-bold">
               Email de contacto: {orden.buyer.email}
             </p>
-            <Link to="/home" className="btn btn-warning fw-bold">
+            <Link to="/home" className="btn btn-danger fw-bold">
               Volver al Inicio
             </Link>
           </div>
