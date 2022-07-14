@@ -8,6 +8,7 @@ import MyProvider from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import ContactoForm from "./components/ContactoForm";
 import NavBar2 from "./components/NavBar2";
+import Footer from "./components/Footer";
 
 function App() {
   const firebaseConfig = {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/formulario" element={<ContactoForm />} />
           </Routes>
+          <Footer />
         </MyProvider>
       </BrowserRouter>
     </>
