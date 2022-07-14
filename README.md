@@ -33,4 +33,7 @@ Base de datos utilizada: [firebase](https://firebase.google.com).
 *ottonlucena@gmail.com*
 
 
+![Comercial-mis-Reinas-Google-Chrome-2022-07-13-23-15-04](https://user-images.githubusercontent.com/95725481/178891416-2a1d6feb-5a8a-4a9d-a223-69d1e75ab150.gif)
+
+
 
